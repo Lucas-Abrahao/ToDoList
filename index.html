@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/e008fb1a93.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+  </head>
+
+  
+<body>
+  <div class="container">
+    <input type="text" id="input" placeholder="Press Enter to Add a Task">
+    <ul></ul>
+  </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $('#input').change(function(){
+      var input = $(this).val();
+      $('ul').append('<li>' + input + '<i class="fa-regular fa-circle-check"></i><i class="fa-solid fa-trash"></i></li>');
+      $(this).val('');
+    });
+
+    $('ul').on('click','.fa-trash',function(){
+      $(this).parent('li').fadeOut(200);
+    });
+    $('ul').on('click', '.fa-circle-check', function(){
+      $(this).parent('li').toggleClass('checked');
+    });
+
+  });
+</script>
+</html>
